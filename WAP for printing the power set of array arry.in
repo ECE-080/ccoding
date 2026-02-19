@@ -1,0 +1,42 @@
+#include <stdio.h> 
+
+void powerset(int arr[], int n)
+{                                
+    int total= 1 << n;  // 2^n
+    
+    for(int i = 0; i < total; i++)
+    {                            
+        printf("{ ");
+        
+        for(int j = 0; j < n; j++)
+        {                        
+            if(i & (1<< j))
+            {               
+                printf("%d ",
+ arr[j]);                  
+            }           
+        } 
+        
+        printf("}\n");
+    } 
+}
+
+int main()
+{   
+    int  a[] = {10, 12, 15};
+    int  b[] = {2, 3, 1, 8};
+    
+    printf("power set of arry a:\n");
+    powerset(a, 3);
+    printf("\npower set of arry b;\n");
+    powerset(b, 4);
+    return 0;
+    
+}
+            
+        
+        
+    
+        
+        
+    
