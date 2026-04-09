@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+struct stack {
+    int a[10];
+    int top;
+};
+
+int main() {
+    struct stack st;
+    st.top = -1;
+
+    int choice, value;
+
+    while (1) {
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+
+            case 1:
+                if (st.top == 9) {
+                    printf("Stack Overflow\n");
+                } else {
+                    printf("Enter value: ");
+                    scanf("%d", &value);
+                    st.top++;
+                    st.a[st.top] = value;
+                }
+                break;
+
+            case 2:
+                if (st.top == -1) {
+                    printf("Stack Underflow\n");
+                } else {
+                    printf("Popped: %d\n", st.a[st.top]);
+                    st.top--;
+                }
+                break;
+
+            case 3:
+                if (st.top == -1) {
+                    printf("Stack is empty\n");
+                } else {
+                    printf("Stack elements:\n");
+                    for (int i = st.top; i >= 0; i--) {
+                        printf("%d ", st.a[i]);
+                    }
+                    printf("\n");
+                }
+                break;
+
+            case 4:
+                return 0;
+
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}
